@@ -1,0 +1,30 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+</head>
+<body>
+<div class="d1">
+  <form action="" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+    <button type="submit" name="submit"></button>
+    <select name="options" class="selector">
+        <option value="autocomplete">By prefix</option>
+        <option selected value="BFS">By chank</option>
+        <option value="find_similar">Find similar</option>
+    </select>
+  </form>
+</div>
+{% block content %}
+{% endblock %}
+</body>
+</html>
